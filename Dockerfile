@@ -185,7 +185,8 @@ RUN apt-get update; \
 # GDAL dependencies
 RUN apt-get update -y; \
     DEBIAN_FRONTEND=noninteractive apt-get install -y  --no-install-recommends \
-        python3-numpy libpython3.8 \
+        build-essential \
+	python3-numpy libpython3.8 \
         libjpeg-turbo8 libgeos-3.6.2 libgeos-c1v5 libproj-dev proj-bin \
         libexpat1 \
         libxerces-c3.2 \
@@ -213,5 +214,4 @@ COPY --from=builder  /build_gdal_python/usr/ /usr/
 COPY --from=builder  /build_gdal_version_changing/usr/ /usr/
 
 RUN ldconfig
-
-RUN pip install pyrasterframes==0.9.1
+RUN /databricks/conda/envs/dcs-minimal/bin/pip install pyrasterframes==0.9.1
