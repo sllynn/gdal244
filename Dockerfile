@@ -214,4 +214,4 @@ COPY --from=builder  /build_gdal_version_changing/usr/ /usr/
 
 RUN ldconfig
 
-RUN pip3 install pyrasterframes==0.9.1
+RUN pip install pyrasterframes==0.9.1
