@@ -213,3 +213,5 @@ COPY --from=builder  /build_gdal_python/usr/ /usr/
 COPY --from=builder  /build_gdal_version_changing/usr/ /usr/
 
 RUN ldconfig
+
+RUN pip3 install rasterframes==0.9.1
